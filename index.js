@@ -14,6 +14,7 @@ import { noNestedTernary } from './lib/rules/no-nested-ternary.js'
 import { maxFunctionLines } from './lib/rules/max-function-lines.js'
 import { noCommentedCode } from './lib/rules/no-commented-code.js'
 import { commentStyle } from './lib/rules/comment-style.js'
+import { curly } from './lib/rules/curly.js'
 
 export default {
   rules: [
@@ -32,6 +33,7 @@ export default {
     noNestedTernary,
     maxFunctionLines,
     noCommentedCode,
-    commentStyle
+    commentStyle,
+    curly
   ]
 }
