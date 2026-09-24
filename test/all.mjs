@@ -28,6 +28,7 @@ async function runTests() {
   await test.load(import.meta.resolve('./padding-lines.js'))
   await test.load(import.meta.resolve('./ready-guard.js'))
   await test.load(import.meta.resolve('./no-node-stream.js'))
+  await test.load(import.meta.resolve('./max-depth.js'))
 
   test.resume()
 }
