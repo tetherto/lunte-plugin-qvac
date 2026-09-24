@@ -17,25 +17,23 @@ import { commentStyle } from './lib/rules/comment-style.js'
 import { curly } from './lib/rules/curly.js'
 import { paddingLines } from './lib/rules/padding-lines.js'
 
-export default {
-  rules: [
-    noConditionalSpread,
-    noCatchFabricate,
-    preferForAwait,
-    noSleep,
-    noSettimeout,
-    noBufferGlobal,
-    noExplicitAny,
-    noAsCast,
-    noInitMethod,
-    noUtilsFile,
-    noPositionalBoolean,
-    maxParams,
-    noNestedTernary,
-    maxFunctionLines,
-    noCommentedCode,
-    commentStyle,
-    curly,
-    paddingLines
-  ]
-}
+export const rules = [
+  noConditionalSpread,
+  noCatchFabricate,
+  preferForAwait,
+  noSleep,
+  noSettimeout,
+  noBufferGlobal,
+  noExplicitAny,
+  noAsCast,
+  noInitMethod,
+  noUtilsFile,
+  noPositionalBoolean,
+  maxParams,
+  noNestedTernary,
+  maxFunctionLines,
+  noCommentedCode,
+  commentStyle,
+  curly,
+  paddingLines
+]
