@@ -23,7 +23,20 @@ Turn a rule off or down the same way as a built-in one:
 ```json
 {
   "plugins": ["lunte-plugin-qvac"],
-  "rules": { "qvac/max-function-lines": "off" }
+  "rules": { "qvac/max-function-lines": "warn" }
+}
+```
+
+`qvac/max-function-lines` and `qvac/max-depth` take a `max`. They read it from `context.options`, in
+the ESLint shape, so once lunte passes rule options it is set like this; until then the defaults
+apply:
+
+```json
+{
+  "rules": {
+    "qvac/max-function-lines": ["error", { "max": 60 }],
+    "qvac/max-depth": ["error", { "max": 4 }]
+  }
 }
 ```
 
