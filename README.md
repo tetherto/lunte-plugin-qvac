@@ -1,2 +1,11 @@
-# lunte-plugin-qvac
-Lunte rules for the QVAC house style
+# repo-template
+
+Template repository for creating packages
+
+## Usage
+
+tbd
+
+## License
+
+Apache-2.0
