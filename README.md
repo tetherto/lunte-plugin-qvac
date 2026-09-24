@@ -41,6 +41,7 @@ devices and external processes.
 | `qvac/no-catch-fabricate`    | `.catch(noop)` instead of an inline `() => {}`, or a fallback value nobody reads. |
 | `qvac/prefer-for-await`      | `for await` for a loop that opens an iterator and drains it with `it.next()`.     |
 | `qvac/no-sleep`              | No `new Promise((r) => setTimeout(r, ms))` sleeps outside tests and tooling.      |
+| `qvac/no-settimeout`         | Warns on every `setTimeout` / `setInterval` outside tests and tooling.            |
 
 ## License
 

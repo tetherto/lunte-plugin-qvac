@@ -12,6 +12,7 @@ async function runTests() {
   await test.load(import.meta.resolve('./no-catch-fabricate.js'))
   await test.load(import.meta.resolve('./prefer-for-await.js'))
   await test.load(import.meta.resolve('./no-sleep.js'))
+  await test.load(import.meta.resolve('./no-settimeout.js'))
 
   test.resume()
 }
