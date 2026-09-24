@@ -16,6 +16,7 @@ async function runTests() {
   await test.load(import.meta.resolve('./no-buffer-global.js'))
   await test.load(import.meta.resolve('./no-explicit-any.js'))
   await test.load(import.meta.resolve('./no-as-cast.js'))
+  await test.load(import.meta.resolve('./no-init-method.js'))
 
   test.resume()
 }

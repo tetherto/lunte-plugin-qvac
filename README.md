@@ -45,6 +45,7 @@ devices and external processes.
 | `qvac/no-buffer-global`      | `b4a` instead of the `Buffer` global.                                             |
 | `qvac/no-explicit-any`       | No `any`.                                                                         |
 | `qvac/no-as-cast`            | No `as` / `<T>` assertions in product code; `as const` is fine.                   |
+| `qvac/no-init-method`        | No `init()`; that is `ready()`.                                                   |
 
 ## License
 
