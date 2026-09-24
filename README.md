@@ -36,6 +36,7 @@ Rules that only make sense in product code skip test files: anything under a `te
 | ---------------------------- | --------------------------------------------------------------------------------- |
 | `qvac/no-conditional-spread` | No `...(x ? { x } : {})`; assign the field and let `undefined` propagate.         |
 | `qvac/no-catch-fabricate`    | `.catch(noop)` instead of an inline `() => {}`, or a fallback value nobody reads. |
+| `qvac/prefer-for-await`      | `for await` for a loop that opens an iterator and drains it with `it.next()`.     |
 
 ## License
 
