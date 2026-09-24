@@ -10,6 +10,7 @@ import { noInitMethod } from './lib/rules/no-init-method.js'
 import { noUtilsFile } from './lib/rules/no-utils-file.js'
 import { noPositionalBoolean } from './lib/rules/no-positional-boolean.js'
 import { maxParams } from './lib/rules/max-params.js'
+import { noNestedTernary } from './lib/rules/no-nested-ternary.js'
 
 export default {
   rules: [
@@ -24,6 +25,7 @@ export default {
     noInitMethod,
     noUtilsFile,
     noPositionalBoolean,
-    maxParams
+    maxParams,
+    noNestedTernary
   ]
 }

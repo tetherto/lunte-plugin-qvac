@@ -49,6 +49,7 @@ devices and external processes.
 | `qvac/no-utils-file`         | No `utils` / `helpers` / `misc` / `common` files in product code.                 |
 | `qvac/no-positional-boolean` | No `true` / `false` literal among several call arguments in product code.         |
 | `qvac/max-params`            | At most three positional parameters.                                              |
+| `qvac/no-nested-ternary`     | No ternary inside a ternary.                                                      |
 
 ## License
 
