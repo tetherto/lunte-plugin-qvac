@@ -56,6 +56,7 @@ devices and external processes.
 | `qvac/curly`                 | Braces everywhere except a one-line guard clause at the top of a function or loop. Autofix.          |
 | `qvac/padding-lines`         | A blank line after a multi-line block and before the closing `return` of a longer block. Autofix.    |
 | `qvac/ready-guard`           | `if (!this.opened) await this.ready()` instead of a bare `await this.ready()`. Autofix.              |
+| `qvac/no-node-stream`        | `streamx` instead of Node's `stream` module.                                                         |
 
 ## License
 

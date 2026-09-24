@@ -17,6 +17,7 @@ import { commentStyle } from './lib/rules/comment-style.js'
 import { curly } from './lib/rules/curly.js'
 import { paddingLines } from './lib/rules/padding-lines.js'
 import { readyGuard } from './lib/rules/ready-guard.js'
+import { noNodeStream } from './lib/rules/no-node-stream.js'
 
 export const rules = [
   noConditionalSpread,
@@ -37,5 +38,6 @@ export const rules = [
   commentStyle,
   curly,
   paddingLines,
-  readyGuard
+  readyGuard,
+  noNodeStream
 ]
