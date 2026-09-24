@@ -9,6 +9,7 @@ import { noAsCast } from './lib/rules/no-as-cast.js'
 import { noInitMethod } from './lib/rules/no-init-method.js'
 import { noUtilsFile } from './lib/rules/no-utils-file.js'
 import { noPositionalBoolean } from './lib/rules/no-positional-boolean.js'
+import { maxParams } from './lib/rules/max-params.js'
 
 export default {
   rules: [
@@ -22,6 +23,7 @@ export default {
     noAsCast,
     noInitMethod,
     noUtilsFile,
-    noPositionalBoolean
+    noPositionalBoolean,
+    maxParams
   ]
 }

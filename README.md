@@ -48,6 +48,7 @@ devices and external processes.
 | `qvac/no-init-method`        | No `init()`; that is `ready()`.                                                   |
 | `qvac/no-utils-file`         | No `utils` / `helpers` / `misc` / `common` files in product code.                 |
 | `qvac/no-positional-boolean` | No `true` / `false` literal among several call arguments in product code.         |
+| `qvac/max-params`            | At most three positional parameters.                                              |
 
 ## License
 

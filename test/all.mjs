@@ -19,6 +19,7 @@ async function runTests() {
   await test.load(import.meta.resolve('./no-init-method.js'))
   await test.load(import.meta.resolve('./no-utils-file.js'))
   await test.load(import.meta.resolve('./no-positional-boolean.js'))
+  await test.load(import.meta.resolve('./max-params.js'))
 
   test.resume()
 }
