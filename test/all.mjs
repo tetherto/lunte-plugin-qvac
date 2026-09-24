@@ -30,6 +30,7 @@ async function runTests() {
   await test.load(import.meta.resolve('./no-node-stream.js'))
   await test.load(import.meta.resolve('./max-depth.js'))
   await test.load(import.meta.resolve('./no-else-after-return.js'))
+  await test.load(import.meta.resolve('./lines-between-class-members.js'))
 
   test.resume()
 }

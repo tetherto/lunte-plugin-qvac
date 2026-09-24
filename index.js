@@ -20,6 +20,7 @@ import { readyGuard } from './lib/rules/ready-guard.js'
 import { noNodeStream } from './lib/rules/no-node-stream.js'
 import { maxDepth } from './lib/rules/max-depth.js'
 import { noElseAfterReturn } from './lib/rules/no-else-after-return.js'
+import { linesBetweenClassMembers } from './lib/rules/lines-between-class-members.js'
 
 export const rules = [
   noConditionalSpread,
@@ -43,5 +44,6 @@ export const rules = [
   readyGuard,
   noNodeStream,
   maxDepth,
-  noElseAfterReturn
+  noElseAfterReturn,
+  linesBetweenClassMembers
 ]
