@@ -28,3 +28,30 @@ function f(x: Buffer | Uint8Array): Buffer { return b4a.from(x) }
 
   t.alike(lines, [])
 })
+
+test('flags Buffer methods b4a replaces, and the buffer module', async (t) => {
+  const { lines } = await lint(
+    `const a = key.toString('hex')
+const b = id.equals(other)
+const c = blob.readUInt32LE(0)
+const d = x.compare(y)
+import { Buffer } from 'buffer'
+`,
+    { rule }
+  )
+
+  t.alike(lines, [1, 2, 3, 4, 5])
+})
+
+test('lookalikes without a b4a equivalent pass', async (t) => {
+  const { lines } = await lint(
+    `const a = n.toString(16)
+const b = obj.toString()
+const c = blob.readUInt16LE(0)
+const d = collator.compare(a, b)
+`,
+    { rule }
+  )
+
+  t.alike(lines, [])
+})
