@@ -11,6 +11,7 @@ async function runTests() {
   await test.load(import.meta.resolve('./no-conditional-spread.js'))
   await test.load(import.meta.resolve('./no-catch-fabricate.js'))
   await test.load(import.meta.resolve('./prefer-for-await.js'))
+  await test.load(import.meta.resolve('./no-sleep.js'))
 
   test.resume()
 }
