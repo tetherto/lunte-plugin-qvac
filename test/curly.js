@@ -19,6 +19,11 @@ for (const x of xs) {
   if (!x) continue
   run(x)
 }
+async function g() {
+  if (!this.opened) await this.ready()
+  if (!x) return
+  run()
+}
 `,
     { rule }
   )
@@ -48,8 +53,8 @@ test('wraps the body in braces', async (t) => {
   const { output } = await lint(
     `function f(x) {
   run()
-  if (x) return 1
-  else return 2
+  if (x) run(1)
+  else run(2)
 }
 `,
     { rule, fix: true }
@@ -59,8 +64,8 @@ test('wraps the body in braces', async (t) => {
     output,
     `function f(x) {
   run()
-  if (x) { return 1 }
-  else { return 2 }
+  if (x) { run(1) }
+  else { run(2) }
 }
 `
   )
