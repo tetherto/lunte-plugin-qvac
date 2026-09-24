@@ -7,7 +7,7 @@ async function runTests() {
 
   test.pause()
 
-  await test.load(import.meta.resolve('./basic.js'))
+  await test.load(import.meta.resolve('./paths.js'))
 
   test.resume()
 }

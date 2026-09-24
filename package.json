@@ -1,7 +1,8 @@
 {
-  "name": "repo-template",
+  "name": "lunte-plugin-qvac",
   "version": "0.0.1",
-  "description": "repo-template",
+  "description": "Lunte rules for the QVAC house style",
+  "type": "module",
   "main": "index.js",
   "exports": {
     "./package": "./package.json",
@@ -13,8 +14,12 @@
   "files": [
     "package.json",
     "index.js",
-    "index.d.ts"
+    "index.d.ts",
+    "lib"
   ],
+  "peerDependencies": {
+    "lunte": "^1.8.4"
+  },
   "devDependencies": {
     "brittle": "^4.1.0",
     "lunte": "^1.8.4",
@@ -31,12 +36,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tetherto/repo-template.git"
+    "url": "https://github.com/tetherto/lunte-plugin-qvac.git"
   },
   "author": "Tether Inc",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/tetherto/repo-template/issues"
+    "url": "https://github.com/tetherto/lunte-plugin-qvac/issues"
   },
-  "homepage": "https://github.com/tetherto/repo-template"
+  "homepage": "https://github.com/tetherto/lunte-plugin-qvac"
 }

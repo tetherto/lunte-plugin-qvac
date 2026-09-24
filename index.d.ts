@@ -1,1 +1,1 @@
-declare module 'repo-template'
+declare module 'lunte-plugin-qvac'

@@ -1,9 +1,3 @@
-class Hello {
-  constructor() {}
-
-  get world() {
-    return 'world'
-  }
+export default {
+  rules: []
 }
-
-module.exports = Hello
