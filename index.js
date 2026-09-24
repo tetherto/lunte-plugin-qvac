@@ -19,6 +19,7 @@ import { paddingLines } from './lib/rules/padding-lines.js'
 import { readyGuard } from './lib/rules/ready-guard.js'
 import { noNodeStream } from './lib/rules/no-node-stream.js'
 import { maxDepth } from './lib/rules/max-depth.js'
+import { noElseAfterReturn } from './lib/rules/no-else-after-return.js'
 
 export const rules = [
   noConditionalSpread,
@@ -41,5 +42,6 @@ export const rules = [
   paddingLines,
   readyGuard,
   noNodeStream,
-  maxDepth
+  maxDepth,
+  noElseAfterReturn
 ]

@@ -58,6 +58,7 @@ devices and external processes.
 | `qvac/ready-guard`           | `if (!this.opened) await this.ready()` instead of a bare `await this.ready()`. Autofix.              |
 | `qvac/no-node-stream`        | `streamx` instead of Node's `stream` module.                                                         |
 | `qvac/max-depth`             | Blocks nest at most `max` deep (default 3); `else if` and nested functions start over.               |
+| `qvac/no-else-after-return`  | No `else` after an `if` that returns or throws. Autofix.                                             |
 
 ## License
 
