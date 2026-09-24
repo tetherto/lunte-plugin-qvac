@@ -46,6 +46,7 @@ devices and external processes.
 | `qvac/no-explicit-any`       | No `any`.                                                                         |
 | `qvac/no-as-cast`            | No `as` / `<T>` assertions in product code; `as const` is fine.                   |
 | `qvac/no-init-method`        | No `init()`; that is `ready()`.                                                   |
+| `qvac/no-utils-file`         | No `utils` / `helpers` / `misc` / `common` files in product code.                 |
 
 ## License
 

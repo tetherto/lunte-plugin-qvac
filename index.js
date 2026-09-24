@@ -7,6 +7,7 @@ import { noBufferGlobal } from './lib/rules/no-buffer-global.js'
 import { noExplicitAny } from './lib/rules/no-explicit-any.js'
 import { noAsCast } from './lib/rules/no-as-cast.js'
 import { noInitMethod } from './lib/rules/no-init-method.js'
+import { noUtilsFile } from './lib/rules/no-utils-file.js'
 
 export default {
   rules: [
@@ -18,6 +19,7 @@ export default {
     noBufferGlobal,
     noExplicitAny,
     noAsCast,
-    noInitMethod
+    noInitMethod,
+    noUtilsFile
   ]
 }
