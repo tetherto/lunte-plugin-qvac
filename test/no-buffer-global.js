@@ -49,6 +49,8 @@ test('lookalikes without a b4a equivalent pass', async (t) => {
 const b = obj.toString()
 const c = blob.readUInt16LE(0)
 const d = collator.compare(a, b)
+const e = b4a.readUInt32LE(buf, 0)
+b4a.writeUInt32LE(buf, 1, 0)
 `,
     { rule }
   )
