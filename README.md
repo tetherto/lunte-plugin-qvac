@@ -32,9 +32,10 @@ Rules that only make sense in product code skip test files: anything under a `te
 
 ## Rules
 
-| Rule                         | What it enforces                                                          |
-| ---------------------------- | ------------------------------------------------------------------------- |
-| `qvac/no-conditional-spread` | No `...(x ? { x } : {})`; assign the field and let `undefined` propagate. |
+| Rule                         | What it enforces                                                                  |
+| ---------------------------- | --------------------------------------------------------------------------------- |
+| `qvac/no-conditional-spread` | No `...(x ? { x } : {})`; assign the field and let `undefined` propagate.         |
+| `qvac/no-catch-fabricate`    | `.catch(noop)` instead of an inline `() => {}`, or a fallback value nobody reads. |
 
 ## License
 
