@@ -25,6 +25,7 @@ async function runTests() {
   await test.load(import.meta.resolve('./no-commented-code.js'))
   await test.load(import.meta.resolve('./comment-style.js'))
   await test.load(import.meta.resolve('./curly.js'))
+  await test.load(import.meta.resolve('./padding-lines.js'))
 
   test.resume()
 }
