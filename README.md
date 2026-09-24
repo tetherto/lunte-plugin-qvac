@@ -51,6 +51,7 @@ devices and external processes.
 | `qvac/max-params`            | At most three positional parameters.                                              |
 | `qvac/no-nested-ternary`     | No ternary inside a ternary.                                                      |
 | `qvac/max-function-lines`    | Warns on product functions over 40 lines.                                         |
+| `qvac/no-commented-code`     | No commented-out code.                                                            |
 
 ## License
 

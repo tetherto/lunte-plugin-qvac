@@ -12,6 +12,7 @@ import { noPositionalBoolean } from './lib/rules/no-positional-boolean.js'
 import { maxParams } from './lib/rules/max-params.js'
 import { noNestedTernary } from './lib/rules/no-nested-ternary.js'
 import { maxFunctionLines } from './lib/rules/max-function-lines.js'
+import { noCommentedCode } from './lib/rules/no-commented-code.js'
 
 export default {
   rules: [
@@ -28,6 +29,7 @@ export default {
     noPositionalBoolean,
     maxParams,
     noNestedTernary,
-    maxFunctionLines
+    maxFunctionLines,
+    noCommentedCode
   ]
 }
