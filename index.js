@@ -5,6 +5,7 @@ import { noSleep } from './lib/rules/no-sleep.js'
 import { noSettimeout } from './lib/rules/no-settimeout.js'
 import { noBufferGlobal } from './lib/rules/no-buffer-global.js'
 import { noExplicitAny } from './lib/rules/no-explicit-any.js'
+import { noAsCast } from './lib/rules/no-as-cast.js'
 
 export default {
   rules: [
@@ -14,6 +15,7 @@ export default {
     noSleep,
     noSettimeout,
     noBufferGlobal,
-    noExplicitAny
+    noExplicitAny,
+    noAsCast
   ]
 }

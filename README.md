@@ -44,6 +44,7 @@ devices and external processes.
 | `qvac/no-settimeout`         | Warns on every `setTimeout` / `setInterval` outside tests and tooling.            |
 | `qvac/no-buffer-global`      | `b4a` instead of the `Buffer` global.                                             |
 | `qvac/no-explicit-any`       | No `any`.                                                                         |
+| `qvac/no-as-cast`            | No `as` / `<T>` assertions in product code; `as const` is fine.                   |
 
 ## License
 
