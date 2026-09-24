@@ -60,6 +60,7 @@ devices and external processes.
 | `qvac/max-depth`                   | Blocks nest at most `max` deep (default 3); `else if` and nested functions start over.               |
 | `qvac/no-else-after-return`        | No `else` after an `if` that returns or throws. Autofix.                                             |
 | `qvac/lines-between-class-members` | A blank line between class members when either spans several lines. Autofix.                         |
+| `qvac/no-default-export`           | Named exports in product code; `.d.ts` and `*.config.*` files are exempt.                            |
 
 ## License
 
