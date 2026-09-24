@@ -13,11 +13,14 @@ run()
 // }
 /* this.close() */
 // await core.ready()
+run()
+// the cache warms on first read
+// const cached = await load()
 `,
     { rule }
   )
 
-  t.alike(lines, [1, 3, 6, 7])
+  t.alike(lines, [1, 3, 6, 7, 10])
 })
 
 test('prose, single words and directives pass', async (t) => {
