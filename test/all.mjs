@@ -21,6 +21,7 @@ async function runTests() {
   await test.load(import.meta.resolve('./no-positional-boolean.js'))
   await test.load(import.meta.resolve('./max-params.js'))
   await test.load(import.meta.resolve('./no-nested-ternary.js'))
+  await test.load(import.meta.resolve('./max-function-lines.js'))
 
   test.resume()
 }
