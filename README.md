@@ -52,6 +52,7 @@ devices and external processes.
 | `qvac/no-nested-ternary`     | No ternary inside a ternary.                                                      |
 | `qvac/max-function-lines`    | Warns on product functions over 40 lines.                                         |
 | `qvac/no-commented-code`     | No commented-out code.                                                            |
+| `qvac/comment-style`         | Comments are one `//` line under 100 characters: no blocks, no dividers.          |
 
 ## License
 

@@ -23,6 +23,7 @@ async function runTests() {
   await test.load(import.meta.resolve('./no-nested-ternary.js'))
   await test.load(import.meta.resolve('./max-function-lines.js'))
   await test.load(import.meta.resolve('./no-commented-code.js'))
+  await test.load(import.meta.resolve('./comment-style.js'))
 
   test.resume()
 }

@@ -13,6 +13,7 @@ import { maxParams } from './lib/rules/max-params.js'
 import { noNestedTernary } from './lib/rules/no-nested-ternary.js'
 import { maxFunctionLines } from './lib/rules/max-function-lines.js'
 import { noCommentedCode } from './lib/rules/no-commented-code.js'
+import { commentStyle } from './lib/rules/comment-style.js'
 
 export default {
   rules: [
@@ -30,6 +31,7 @@ export default {
     maxParams,
     noNestedTernary,
     maxFunctionLines,
-    noCommentedCode
+    noCommentedCode,
+    commentStyle
   ]
 }
