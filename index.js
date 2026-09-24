@@ -4,6 +4,7 @@ import { preferForAwait } from './lib/rules/prefer-for-await.js'
 import { noSleep } from './lib/rules/no-sleep.js'
 import { noSettimeout } from './lib/rules/no-settimeout.js'
 import { noBufferGlobal } from './lib/rules/no-buffer-global.js'
+import { noExplicitAny } from './lib/rules/no-explicit-any.js'
 
 export default {
   rules: [
@@ -12,6 +13,7 @@ export default {
     preferForAwait,
     noSleep,
     noSettimeout,
-    noBufferGlobal
+    noBufferGlobal,
+    noExplicitAny
   ]
 }

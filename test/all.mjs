@@ -14,6 +14,7 @@ async function runTests() {
   await test.load(import.meta.resolve('./no-sleep.js'))
   await test.load(import.meta.resolve('./no-settimeout.js'))
   await test.load(import.meta.resolve('./no-buffer-global.js'))
+  await test.load(import.meta.resolve('./no-explicit-any.js'))
 
   test.resume()
 }
