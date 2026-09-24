@@ -32,6 +32,7 @@ async function runTests() {
   await test.load(import.meta.resolve('./no-else-after-return.js'))
   await test.load(import.meta.resolve('./lines-between-class-members.js'))
   await test.load(import.meta.resolve('./no-default-export.js'))
+  await test.load(import.meta.resolve('./explicit-return-type.js'))
 
   test.resume()
 }

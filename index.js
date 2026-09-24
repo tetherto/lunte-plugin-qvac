@@ -22,6 +22,7 @@ import { maxDepth } from './lib/rules/max-depth.js'
 import { noElseAfterReturn } from './lib/rules/no-else-after-return.js'
 import { linesBetweenClassMembers } from './lib/rules/lines-between-class-members.js'
 import { noDefaultExport } from './lib/rules/no-default-export.js'
+import { explicitReturnType } from './lib/rules/explicit-return-type.js'
 
 export const rules = [
   noConditionalSpread,
@@ -47,5 +48,6 @@ export const rules = [
   maxDepth,
   noElseAfterReturn,
   linesBetweenClassMembers,
-  noDefaultExport
+  noDefaultExport,
+  explicitReturnType
 ]
