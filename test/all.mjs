@@ -8,6 +8,7 @@ async function runTests() {
   test.pause()
 
   await test.load(import.meta.resolve('./paths.js'))
+  await test.load(import.meta.resolve('./no-conditional-spread.js'))
 
   test.resume()
 }

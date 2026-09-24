@@ -32,8 +32,9 @@ Rules that only make sense in product code skip test files: anything under a `te
 
 ## Rules
 
-| Rule | What it enforces |
-| ---- | ---------------- |
+| Rule                         | What it enforces                                                          |
+| ---------------------------- | ------------------------------------------------------------------------- |
+| `qvac/no-conditional-spread` | No `...(x ? { x } : {})`; assign the field and let `undefined` propagate. |
 
 ## License
 
