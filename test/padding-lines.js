@@ -22,22 +22,30 @@ next()
   t.alike(lines, [4, 9])
 })
 
-test('flags a closing return in a block of three or more statements', async (t) => {
+test('flags a closing return after a multi-line statement in a longer block', async (t) => {
   const { lines } = await lint(
     `function f() {
-  const a = 1
+  const a = build({
+    x: 1
+  })
   const b = 2
   return a + b
 }
 function g() {
   const a = 1
-  return a
+  const b = 2
+  return a + b
+}
+function kind(n) {
+  if (n < 0) return 'neg'
+  if (n === 0) return 'zero'
+  return 'pos'
 }
 `,
     { rule }
   )
 
-  t.alike(lines, [4])
+  t.alike(lines, [6])
 })
 
 test('one-line blocks, grouped code and else chains pass', async (t) => {

@@ -305,7 +305,8 @@ function g(x) {
 ### qvac/padding-lines
 
 A blank line after a multi-line block, and before the closing `return` of a block with three or
-more statements.
+more statements when one of them spans several lines. A run of one-line statements, like an
+if-return ladder, stays together with its return.
 
 ```js
 // flagged
