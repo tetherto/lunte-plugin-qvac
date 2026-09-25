@@ -9,11 +9,13 @@ test('flags a ternary or && spread of an optional field', async (t) => {
     `const a = { ...(signal ? { signal } : {}) }
 const b = { ...(signal ? {} : { fallback: 1 }) }
 const c = { ...(signal && { signal }) }
+const d = { ...(speak ? { speak } : null) }
+const e = { ...(speak ? undefined : { fallback }) }
 `,
     { rule }
   )
 
-  t.alike(lines, [1, 2, 3])
+  t.alike(lines, [1, 2, 3, 4, 5])
 })
 
 test('plain fields and unconditional spreads pass', async (t) => {

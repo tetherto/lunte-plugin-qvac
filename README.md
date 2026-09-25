@@ -89,6 +89,7 @@ spread only adds a branch.
 
 ```js
 const opts = { ...(signal ? { signal } : {}) } // flagged
+const opts = { ...(speak ? { speak } : null) } // flagged: null is the same empty branch
 const opts = { signal } // ok
 ```
 
