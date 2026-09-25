@@ -79,6 +79,7 @@ devices and external processes.
 | [`qvac/explicit-return-type`](#qvacexplicit-return-type)               | Exported TypeScript functions declare their return type.                                                                                       |
 | [`qvac/no-inline-object-type`](#qvacno-inline-object-type)             | Object types in a function signature get a name (an interface).                                                                                |
 | [`qvac/prefer-interface`](#qvacprefer-interface)                       | `interface X { … }`, not `type X = { … }`, for an object shape. Autofix.                                                                       |
+| [`qvac/no-non-null-assertion`](#qvacno-non-null-assertion)             | No `x!` or `let x!: T` outside tests.                                                                                                          |
 
 ## Rule details
 
@@ -448,6 +449,19 @@ interface Chat {
   title: string
 } // ok
 type Status = 'open' | 'closed' // ok: not an object shape
+```
+
+### qvac/no-non-null-assertion
+
+A `!` is a cast: it tells the compiler to stop checking. Narrow the value, or give the field a type
+that is set whenever it is read. Tests are exempt.
+
+```ts
+const id = this._deviceId! // flagged
+let final!: Frame // flagged
+
+if (!this._deviceId) throw new Error('not open')
+const id = this._deviceId // ok: narrowed
 ```
 
 ## License
