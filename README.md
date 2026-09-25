@@ -77,6 +77,7 @@ devices and external processes.
 | [`qvac/lines-between-class-members`](#qvaclines-between-class-members) | A blank line between class members when either spans several lines. Autofix.                                                                   |
 | [`qvac/no-default-export`](#qvacno-default-export)                     | Named exports in product code; `.d.ts` and `*.config.*` files are exempt.                                                                      |
 | [`qvac/explicit-return-type`](#qvacexplicit-return-type)               | Exported TypeScript functions declare their return type.                                                                                       |
+| [`qvac/no-inline-object-type`](#qvacno-inline-object-type)             | Object types in a function signature get a name (an interface).                                                                                |
 
 ## Rule details
 
@@ -414,6 +415,20 @@ An exported function's signature is its contract, so it shouldn't depend on infe
 ```ts
 export function listingOf(row: ChatRow) {} // flagged
 export function listingOf(row: ChatRow): ChatListing {} // ok
+```
+
+### qvac/no-inline-object-type
+
+An object type spelled out in a signature has no name to read, reuse or document. Give it an
+interface. Only function parameters and return types are checked.
+
+```ts
+function frame({ fileIndex }: { fileIndex: number }) {} // flagged
+
+interface FrameOptions {
+  fileIndex: number
+}
+function frame({ fileIndex }: FrameOptions) {} // ok
 ```
 
 ## License

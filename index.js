@@ -24,6 +24,7 @@ import { noElseAfterReturn } from './lib/rules/no-else-after-return.js'
 import { linesBetweenClassMembers } from './lib/rules/lines-between-class-members.js'
 import { noDefaultExport } from './lib/rules/no-default-export.js'
 import { explicitReturnType } from './lib/rules/explicit-return-type.js'
+import { noInlineObjectType } from './lib/rules/no-inline-object-type.js'
 
 export const rules = [
   noConditionalSpread,
@@ -51,5 +52,6 @@ export const rules = [
   noElseAfterReturn,
   linesBetweenClassMembers,
   noDefaultExport,
-  explicitReturnType
+  explicitReturnType,
+  noInlineObjectType
 ]
