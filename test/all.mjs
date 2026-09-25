@@ -13,7 +13,7 @@ async function runTests() {
   await test.load(import.meta.resolve('./prefer-for-await.js'))
   await test.load(import.meta.resolve('./no-sleep.js'))
   await test.load(import.meta.resolve('./no-settimeout.js'))
-  await test.load(import.meta.resolve('./no-buffer-global.js'))
+  await test.load(import.meta.resolve('./prefer-b4a.js'))
   await test.load(import.meta.resolve('./no-explicit-any.js'))
   await test.load(import.meta.resolve('./no-as-cast.js'))
   await test.load(import.meta.resolve('./no-init-method.js'))

@@ -2,7 +2,7 @@ import test from 'brittle'
 
 import { lint } from './helpers/lint.js'
 
-const rule = 'qvac/no-buffer-global'
+const rule = 'qvac/prefer-b4a'
 
 test('flags every runtime use of the Buffer global', async (t) => {
   const { lines } = await lint(

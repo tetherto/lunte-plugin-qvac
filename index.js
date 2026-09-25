@@ -3,7 +3,7 @@ import { noCatchFabricate } from './lib/rules/no-catch-fabricate.js'
 import { preferForAwait } from './lib/rules/prefer-for-await.js'
 import { noSleep } from './lib/rules/no-sleep.js'
 import { noSettimeout } from './lib/rules/no-settimeout.js'
-import { noBufferGlobal } from './lib/rules/no-buffer-global.js'
+import { preferB4a } from './lib/rules/prefer-b4a.js'
 import { noExplicitAny } from './lib/rules/no-explicit-any.js'
 import { noAsCast } from './lib/rules/no-as-cast.js'
 import { noInitMethod } from './lib/rules/no-init-method.js'
@@ -30,7 +30,7 @@ export const rules = [
   preferForAwait,
   noSleep,
   noSettimeout,
-  noBufferGlobal,
+  preferB4a,
   noExplicitAny,
   noAsCast,
   noInitMethod,

@@ -55,7 +55,7 @@ devices and external processes.
 | [`qvac/prefer-for-await`](#qvacprefer-for-await)                       | `for await` for a loop that opens an iterator and drains it with `it.next()`.                        |
 | [`qvac/no-sleep`](#qvacno-sleep)                                       | No `new Promise((r) => setTimeout(r, ms))` sleeps outside tests and tooling.                         |
 | [`qvac/no-settimeout`](#qvacno-settimeout)                             | Warns on every `setTimeout` / `setInterval` outside tests and tooling.                               |
-| [`qvac/no-buffer-global`](#qvacno-buffer-global)                       | `b4a` instead of the `Buffer` global, the `buffer` module, or Buffer methods b4a has a function for. |
+| [`qvac/prefer-b4a`](#qvacprefer-b4a)                                   | `b4a` instead of the `Buffer` global, the `buffer` module, or Buffer methods b4a has a function for. |
 | [`qvac/no-explicit-any`](#qvacno-explicit-any)                         | No `any`.                                                                                            |
 | [`qvac/no-as-cast`](#qvacno-as-cast)                                   | No `as` / `<T>` assertions in product code; `as const` is fine.                                      |
 | [`qvac/no-init-method`](#qvacno-init-method)                           | No `init()`; that is `ready()`.                                                                      |
@@ -135,7 +135,7 @@ look.
 const timer = setTimeout(flush, 100) // warning
 ```
 
-### qvac/no-buffer-global
+### qvac/prefer-b4a
 
 `b4a` works the same on Node and Bare; the `Buffer` global and its methods are Node's.
 
