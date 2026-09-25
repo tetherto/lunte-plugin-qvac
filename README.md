@@ -81,6 +81,7 @@ devices and external processes.
 | [`qvac/prefer-interface`](#qvacprefer-interface)                       | `interface X { … }`, not `type X = { … }`, for an object shape. Autofix.                                                                       |
 | [`qvac/no-non-null-assertion`](#qvacno-non-null-assertion)             | No `x!` or `let x!: T` outside tests.                                                                                                          |
 | [`qvac/no-inline-collection-name`](#qvacno-inline-collection-name)     | A collection name like `@qvac/devices` is spelled once, in its home module (options: `pattern`, `home`).                                       |
+| [`qvac/no-constant-nullish`](#qvacno-constant-nullish)                 | No `?? x` after a value that is never nullish, no `=== true` on a boolean. Autofix.                                                            |
 
 ## Rule details
 
@@ -478,6 +479,18 @@ const DEVICES = '@qvac/devices' // flagged outside the home module
 
 import { DEVICES } from './collections.ts'
 view.get<QvacDevice>(DEVICES, { id }) // ok
+```
+
+### qvac/no-constant-nullish
+
+`??` after a value that is never null or undefined, and `=== true` on something already boolean, do
+nothing and hide what the code means. The fix drops the dead half.
+
+```ts
+;(!!a && b4a.equals(a, b)) ??
+  false // flagged
+  (!!a && b4a.equals(a, b)) !== true // flagged
+!a || !b4a.equals(a, b) // ok
 ```
 
 ## License

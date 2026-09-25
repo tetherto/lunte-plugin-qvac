@@ -28,6 +28,7 @@ import { noInlineObjectType } from './lib/rules/no-inline-object-type.js'
 import { preferInterface } from './lib/rules/prefer-interface.js'
 import { noNonNullAssertion } from './lib/rules/no-non-null-assertion.js'
 import { noInlineCollectionName } from './lib/rules/no-inline-collection-name.js'
+import { noConstantNullish } from './lib/rules/no-constant-nullish.js'
 
 export const rules = [
   noConditionalSpread,
@@ -59,5 +60,6 @@ export const rules = [
   noInlineObjectType,
   preferInterface,
   noNonNullAssertion,
-  noInlineCollectionName
+  noInlineCollectionName,
+  noConstantNullish
 ]
