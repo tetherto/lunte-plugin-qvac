@@ -80,6 +80,7 @@ devices and external processes.
 | [`qvac/no-inline-object-type`](#qvacno-inline-object-type)             | Object types in a function signature get a name (an interface).                                                                                |
 | [`qvac/prefer-interface`](#qvacprefer-interface)                       | `interface X { … }`, not `type X = { … }`, for an object shape. Autofix.                                                                       |
 | [`qvac/no-non-null-assertion`](#qvacno-non-null-assertion)             | No `x!` or `let x!: T` outside tests.                                                                                                          |
+| [`qvac/no-inline-collection-name`](#qvacno-inline-collection-name)     | A collection name like `@qvac/devices` is spelled once, in its home module (options: `pattern`, `home`).                                       |
 
 ## Rule details
 
@@ -462,6 +463,21 @@ let final!: Frame // flagged
 
 if (!this._deviceId) throw new Error('not open')
 const id = this._deviceId // ok: narrowed
+```
+
+### qvac/no-inline-collection-name
+
+A collection name written inline at every call is a magic string, and a typo still compiles. Spell it
+once in the home module (by default `schema/` or a `collections.*` file) and import it. The rule
+checks the first argument of `get`, `find`, `findOne`, `insert`, `delete`, `put` and `collection`
+calls, and local constants passed to them. `pattern` and `home` are options.
+
+```ts
+view.get<QvacDevice>('@qvac/devices', { id }) // flagged
+const DEVICES = '@qvac/devices' // flagged outside the home module
+
+import { DEVICES } from './collections.ts'
+view.get<QvacDevice>(DEVICES, { id }) // ok
 ```
 
 ## License

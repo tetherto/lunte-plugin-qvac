@@ -27,6 +27,7 @@ import { explicitReturnType } from './lib/rules/explicit-return-type.js'
 import { noInlineObjectType } from './lib/rules/no-inline-object-type.js'
 import { preferInterface } from './lib/rules/prefer-interface.js'
 import { noNonNullAssertion } from './lib/rules/no-non-null-assertion.js'
+import { noInlineCollectionName } from './lib/rules/no-inline-collection-name.js'
 
 export const rules = [
   noConditionalSpread,
@@ -57,5 +58,6 @@ export const rules = [
   explicitReturnType,
   noInlineObjectType,
   preferInterface,
-  noNonNullAssertion
+  noNonNullAssertion,
+  noInlineCollectionName
 ]
