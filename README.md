@@ -27,15 +27,16 @@ Turn a rule off or down the same way as a built-in one:
 }
 ```
 
-`qvac/max-function-lines` and `qvac/max-depth` take a `max`. They read it from `context.options`, in
-the ESLint shape, so once lunte passes rule options it is set like this; until then the defaults
-apply:
+`qvac/max-function-lines`, `qvac/max-depth` and `qvac/curly` take options. They read them from
+`context.options`, in the ESLint shape, so once lunte passes rule options they are set like this; until
+then the defaults apply:
 
 ```json
 {
   "rules": {
     "qvac/max-function-lines": ["error", { "max": 60 }],
-    "qvac/max-depth": ["error", { "max": 4 }]
+    "qvac/max-depth": ["error", { "max": 4 }],
+    "qvac/curly": ["error", { "maxGuards": 1, "maxLength": 100 }]
   }
 }
 ```
@@ -67,7 +68,7 @@ devices and external processes.
 | [`qvac/max-function-lines`](#qvacmax-function-lines)                   | Functions stay under `max` lines (default 40), outside tests.                                                                                  |
 | [`qvac/no-commented-code`](#qvacno-commented-code)                     | No commented-out code.                                                                                                                         |
 | [`qvac/comment-style`](#qvaccomment-style)                             | Comments are one `//` line under 100 characters: no blocks, no dividers.                                                                       |
-| [`qvac/curly`](#qvaccurly)                                             | Braces everywhere except a one-line guard clause at the top of a function or loop. Autofix.                                                    |
+| [`qvac/curly`](#qvaccurly)                                             | Braces everywhere except a short one-line guard clause at the top of a function or loop (options: `maxGuards`, `maxLength`). Autofix.          |
 | [`qvac/padding-lines`](#qvacpadding-lines)                             | A blank line after a multi-line block and before the closing `return` of a longer block. Autofix.                                              |
 | [`qvac/ready-guard`](#qvacready-guard)                                 | `if (!this.opened) await this.ready()` instead of a bare `await this.ready()`. Autofix.                                                        |
 | [`qvac/no-node-stream`](#qvacno-node-stream)                           | `streamx` instead of Node's `stream` module.                                                                                                   |
@@ -272,12 +273,26 @@ needs reshaping or the reason belongs in a decision record.
 
 ### qvac/curly
 
-Braces everywhere, except a one-line guard clause at the top of a function or loop, including
-`if (!this.opened) await this.ready()`.
+Braces everywhere. The one exception is a short guard clause at the top of a function or loop:
+`if (…) return|throw|continue|break` or `if (!this.opened) await this.ready()`. It stays one line
+only when:
+
+- it is one of the first `maxGuards` (default 2) one-line guards in the block;
+- its line fits in `maxLength` (default 80) characters;
+- what it returns or throws is plain: nothing, a literal, a name, a property, `[]` or `{}`, or
+  `new Error('…')`.
+
+`maxGuards: 0` means braces on every `if`. The fix adds the braces.
 
 ```js
 function f(x) {
-  if (!x) return // ok: a leading guard
+  if (!x) return FALLBACK // ok: a short leading guard with a plain value
+  if (!this.opened) await this.ready() // ok
+  if (x.closed) return null // flagged: the third guard
+}
+
+function g(x) {
+  if (!x) return computeFallback(x) // flagged: the guard computes its answer
   const y = x.y
   if (!y) return // flagged: not at the top
   for (const z of y) run(z) // flagged: loops always take braces
