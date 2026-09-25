@@ -39,6 +39,8 @@ test('one-line why comments, trailing comments and directives pass', async (t) =
   const { lines } = await lint(
     `// the peer may be gone by now; the error is safe to drop
 run()
+// typeof v === 'object' is true for null too
+run()
 run() // offsets are in bytes
 run() // and so are lengths
 // lunte-disable-next-line no-undef
