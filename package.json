@@ -1,6 +1,6 @@
 {
   "name": "lunte-plugin-qvac",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Lunte rules for the QVAC house style",
   "type": "module",
   "main": "index.js",
