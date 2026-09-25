@@ -31,6 +31,7 @@ import { noInlineCollectionName } from './lib/rules/no-inline-collection-name.js
 import { noConstantNullish } from './lib/rules/no-constant-nullish.js'
 import { preferAlike } from './lib/rules/prefer-alike.js'
 import { preferNarrowingCheck } from './lib/rules/prefer-narrowing-check.js'
+import { noHandRolledGuard } from './lib/rules/no-hand-rolled-guard.js'
 
 export const rules = [
   noConditionalSpread,
@@ -65,5 +66,6 @@ export const rules = [
   noInlineCollectionName,
   noConstantNullish,
   preferAlike,
-  preferNarrowingCheck
+  preferNarrowingCheck,
+  noHandRolledGuard
 ]

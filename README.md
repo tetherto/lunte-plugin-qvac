@@ -84,6 +84,7 @@ devices and external processes.
 | [`qvac/no-constant-nullish`](#qvacno-constant-nullish)                 | No `?? x` after a value that is never nullish, no `=== true` on a boolean. Autofix.                                                            |
 | [`qvac/prefer-alike`](#qvacprefer-alike)                               | In tests, `t.alike` / `t.is` / `t.absent` instead of `t.ok` around a comparison. Autofix.                                                      |
 | [`qvac/prefer-narrowing-check`](#qvacprefer-narrowing-check)           | `!!x` instead of `Boolean(x) &&`, `x?.y` instead of `x ? x.y : null`. Autofix.                                                                 |
+| [`qvac/no-hand-rolled-guard`](#qvacno-hand-rolled-guard)               | Import the shared `isRecord` and error-message guards (option: `home`).                                                                        |
 
 ## Rule details
 
@@ -521,6 +522,19 @@ swarm ? swarm.dht : null // flagged
 
 !!room && !room.leftAt // ok
 swarm?.dht ?? null // ok
+```
+
+### qvac/no-hand-rolled-guard
+
+Generic guards copied between files drift apart. `typeof v === 'object' && v !== null` and
+`err instanceof Error ? err.message : String(err)` belong in one module (by default a `guards.*`
+file; `home` is an option) and are imported everywhere else.
+
+```ts
+const isRecord = (v) => typeof v === 'object' && v !== null // flagged
+const message = err instanceof Error ? err.message : String(err) // flagged
+
+import { isRecord, errorMessage } from './guards.ts' // ok
 ```
 
 ## License

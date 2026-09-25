@@ -41,6 +41,7 @@ async function runTests() {
   await test.load(import.meta.resolve('./no-constant-nullish.js'))
   await test.load(import.meta.resolve('./prefer-alike.js'))
   await test.load(import.meta.resolve('./prefer-narrowing-check.js'))
+  await test.load(import.meta.resolve('./no-hand-rolled-guard.js'))
 
   test.resume()
 }
