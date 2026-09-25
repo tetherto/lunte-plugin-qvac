@@ -347,7 +347,8 @@ import type { Duplex } from 'node:stream' // ok: loads nothing
 ### qvac/max-depth
 
 Past `max` levels (default 3) the code wants an early return or a helper. `else if` and nested
-functions start over.
+functions start over. Moving the nesting into a closure that is only called and writes the caller's
+`let`s hides it rather than removing it, so that is reported as a warning: return the value instead.
 
 ```js
 // flagged: the fourth level

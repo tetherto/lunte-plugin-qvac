@@ -54,3 +54,30 @@ test('the max is an option', async (t) => {
   t.alike(deeper.lines, [])
   t.alike(shallower.lines, [4])
 })
+
+test("warns on a closure that is only called and writes its caller's lets", async (t) => {
+  const { diagnostics } = await lint(
+    `function execute(events) {
+  let answer = ''
+  const writeText = (text) => {
+    answer += text
+  }
+  const format = (text) => text.trim()
+  const handler = (text) => {
+    answer = text
+  }
+  events.on('text', handler)
+  for (const e of events) {
+    writeText(format(e.text))
+  }
+  return answer
+}
+`,
+    { rule }
+  )
+
+  t.alike(
+    diagnostics.map((d) => [d.line, d.severity]),
+    [[3, 'warning']]
+  )
+})
