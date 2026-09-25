@@ -78,6 +78,7 @@ devices and external processes.
 | [`qvac/no-default-export`](#qvacno-default-export)                     | Named exports in product code; `.d.ts` and `*.config.*` files are exempt.                                                                      |
 | [`qvac/explicit-return-type`](#qvacexplicit-return-type)               | Exported TypeScript functions declare their return type.                                                                                       |
 | [`qvac/no-inline-object-type`](#qvacno-inline-object-type)             | Object types in a function signature get a name (an interface).                                                                                |
+| [`qvac/prefer-interface`](#qvacprefer-interface)                       | `interface X { … }`, not `type X = { … }`, for an object shape. Autofix.                                                                       |
 
 ## Rule details
 
@@ -429,6 +430,21 @@ interface FrameOptions {
   fileIndex: number
 }
 function frame({ fileIndex }: FrameOptions) {} // ok
+```
+
+### qvac/prefer-interface
+
+An object shape is an interface; `type` is for unions, intersections and mapped types. The fix
+rewrites the alias. An interface has no implicit index signature, so a shape passed where
+`Record<string, unknown>` is expected may need that parameter typed more precisely.
+
+```ts
+type Chat = { id: string; title: string } // flagged, autofix
+interface Chat {
+  id: string
+  title: string
+} // ok
+type Status = 'open' | 'closed' // ok: not an object shape
 ```
 
 ## License

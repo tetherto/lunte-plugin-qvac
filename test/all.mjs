@@ -35,6 +35,7 @@ async function runTests() {
   await test.load(import.meta.resolve('./no-default-export.js'))
   await test.load(import.meta.resolve('./explicit-return-type.js'))
   await test.load(import.meta.resolve('./no-inline-object-type.js'))
+  await test.load(import.meta.resolve('./prefer-interface.js'))
 
   test.resume()
 }

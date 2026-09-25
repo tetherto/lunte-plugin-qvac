@@ -25,6 +25,7 @@ import { linesBetweenClassMembers } from './lib/rules/lines-between-class-member
 import { noDefaultExport } from './lib/rules/no-default-export.js'
 import { explicitReturnType } from './lib/rules/explicit-return-type.js'
 import { noInlineObjectType } from './lib/rules/no-inline-object-type.js'
+import { preferInterface } from './lib/rules/prefer-interface.js'
 
 export const rules = [
   noConditionalSpread,
@@ -53,5 +54,6 @@ export const rules = [
   linesBetweenClassMembers,
   noDefaultExport,
   explicitReturnType,
-  noInlineObjectType
+  noInlineObjectType,
+  preferInterface
 ]
