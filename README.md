@@ -56,6 +56,7 @@ devices and external processes.
 | [`qvac/no-sleep`](#qvacno-sleep)                                       | No `new Promise((r) => setTimeout(r, ms))` sleeps outside tests and tooling.                         |
 | [`qvac/no-settimeout`](#qvacno-settimeout)                             | Warns on every `setTimeout` / `setInterval` outside tests and tooling.                               |
 | [`qvac/prefer-b4a`](#qvacprefer-b4a)                                   | `b4a` instead of the `Buffer` global, the `buffer` module, or Buffer methods b4a has a function for. |
+| [`qvac/no-string-compare-bytes`](#qvacno-string-compare-bytes)         | `b4a.equals(a, b)`, not two buffers compared as strings. Autofix when the encoding is lossless.      |
 | [`qvac/no-explicit-any`](#qvacno-explicit-any)                         | No `any`.                                                                                            |
 | [`qvac/no-as-cast`](#qvacno-as-cast)                                   | No `as` / `<T>` assertions in product code; `as const` is fine.                                      |
 | [`qvac/no-init-method`](#qvacno-init-method)                           | No `init()`; that is `ready()`.                                                                      |
@@ -149,6 +150,20 @@ b4a.toString(key, 'hex') // flagged: say toHex, autofix
 b4a.from('hi') // ok
 b4a.toHex(key) // ok
 b4a.equals(a, b) // ok
+```
+
+### qvac/no-string-compare-bytes
+
+Turning two buffers into strings to compare them allocates twice, and utf8 decodes every invalid byte
+to the same character, so different bytes can compare equal. Comparing a buffer against an id that is
+already a string is fine. The fix rewrites hex, base64 and latin1 comparisons; utf8 ones are only
+reported, because `b4a.equals` is stricter there.
+
+```js
+a.toString() === b.toString() // flagged
+b4a.toHex(a) === b4a.toHex(b) // flagged, autofix
+b4a.equals(a, b) // ok
+coreKey === b4a.toHex(mesh.key) // ok: coreKey is already hex
 ```
 
 ### qvac/no-explicit-any
