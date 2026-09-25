@@ -57,3 +57,16 @@ b4a.writeUInt32LE(buf, 1, 0)
 
   t.alike(lines, [])
 })
+
+test("b4a.toString(buf, 'hex') becomes b4a.toHex(buf)", async (t) => {
+  const { lines } = await lint(
+    "const a = b4a.toString(key, 'hex')\nconst b = b4a.toString(key, 'base64')\n",
+    {
+      rule
+    }
+  )
+  const { output } = await lint("const a = b4a.toString(key, 'hex')\n", { rule, fix: true })
+
+  t.alike(lines, [1])
+  t.is(output, 'const a = b4a.toHex(key)\n')
+})

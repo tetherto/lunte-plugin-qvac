@@ -145,6 +145,7 @@ key.toString('hex') // flagged
 a.equals(b) // flagged
 import { Buffer } from 'buffer' // flagged
 
+b4a.toString(key, 'hex') // flagged: say toHex, autofix
 b4a.from('hi') // ok
 b4a.toHex(key) // ok
 b4a.equals(a, b) // ok
