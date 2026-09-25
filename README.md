@@ -82,6 +82,7 @@ devices and external processes.
 | [`qvac/no-non-null-assertion`](#qvacno-non-null-assertion)             | No `x!` or `let x!: T` outside tests.                                                                                                          |
 | [`qvac/no-inline-collection-name`](#qvacno-inline-collection-name)     | A collection name like `@qvac/devices` is spelled once, in its home module (options: `pattern`, `home`).                                       |
 | [`qvac/no-constant-nullish`](#qvacno-constant-nullish)                 | No `?? x` after a value that is never nullish, no `=== true` on a boolean. Autofix.                                                            |
+| [`qvac/prefer-alike`](#qvacprefer-alike)                               | In tests, `t.alike` / `t.is` / `t.absent` instead of `t.ok` around a comparison. Autofix.                                                      |
 
 ## Rule details
 
@@ -491,6 +492,21 @@ nothing and hide what the code means. The fix drops the dead half.
   false // flagged
   (!!a && b4a.equals(a, b)) !== true // flagged
 !a || !b4a.equals(a, b) // ok
+```
+
+### qvac/prefer-alike
+
+In tests, `t.ok` around a comparison prints `false` when it fails; `t.alike`, `t.is` and `t.absent`
+print both sides. The fix rewrites the assertion.
+
+```js
+t.ok(b4a.equals(a, b), 'same key') // flagged
+t.ok(x === y) // flagged
+t.ok(!found) // flagged
+
+t.alike(a, b, 'same key') // ok
+t.is(x, y) // ok
+t.absent(found) // ok
 ```
 
 ## License

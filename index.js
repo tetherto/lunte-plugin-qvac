@@ -29,6 +29,7 @@ import { preferInterface } from './lib/rules/prefer-interface.js'
 import { noNonNullAssertion } from './lib/rules/no-non-null-assertion.js'
 import { noInlineCollectionName } from './lib/rules/no-inline-collection-name.js'
 import { noConstantNullish } from './lib/rules/no-constant-nullish.js'
+import { preferAlike } from './lib/rules/prefer-alike.js'
 
 export const rules = [
   noConditionalSpread,
@@ -61,5 +62,6 @@ export const rules = [
   preferInterface,
   noNonNullAssertion,
   noInlineCollectionName,
-  noConstantNullish
+  noConstantNullish,
+  preferAlike
 ]

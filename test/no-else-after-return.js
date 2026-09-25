@@ -58,6 +58,6 @@ test('unwraps the else body', async (t) => {
     { rule, fix: true }
   )
 
-  t.ok(!output.includes('else'))
+  t.absent(output.includes('else'))
   t.ok(output.includes('return device.name'))
 })

@@ -39,6 +39,7 @@ async function runTests() {
   await test.load(import.meta.resolve('./no-non-null-assertion.js'))
   await test.load(import.meta.resolve('./no-inline-collection-name.js'))
   await test.load(import.meta.resolve('./no-constant-nullish.js'))
+  await test.load(import.meta.resolve('./prefer-alike.js'))
 
   test.resume()
 }
