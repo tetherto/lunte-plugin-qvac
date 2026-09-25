@@ -30,6 +30,7 @@ import { noNonNullAssertion } from './lib/rules/no-non-null-assertion.js'
 import { noInlineCollectionName } from './lib/rules/no-inline-collection-name.js'
 import { noConstantNullish } from './lib/rules/no-constant-nullish.js'
 import { preferAlike } from './lib/rules/prefer-alike.js'
+import { preferNarrowingCheck } from './lib/rules/prefer-narrowing-check.js'
 
 export const rules = [
   noConditionalSpread,
@@ -63,5 +64,6 @@ export const rules = [
   noNonNullAssertion,
   noInlineCollectionName,
   noConstantNullish,
-  preferAlike
+  preferAlike,
+  preferNarrowingCheck
 ]

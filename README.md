@@ -83,6 +83,7 @@ devices and external processes.
 | [`qvac/no-inline-collection-name`](#qvacno-inline-collection-name)     | A collection name like `@qvac/devices` is spelled once, in its home module (options: `pattern`, `home`).                                       |
 | [`qvac/no-constant-nullish`](#qvacno-constant-nullish)                 | No `?? x` after a value that is never nullish, no `=== true` on a boolean. Autofix.                                                            |
 | [`qvac/prefer-alike`](#qvacprefer-alike)                               | In tests, `t.alike` / `t.is` / `t.absent` instead of `t.ok` around a comparison. Autofix.                                                      |
+| [`qvac/prefer-narrowing-check`](#qvacprefer-narrowing-check)           | `!!x` instead of `Boolean(x) &&`, `x?.y` instead of `x ? x.y : null`. Autofix.                                                                 |
 
 ## Rule details
 
@@ -507,6 +508,19 @@ t.ok(!found) // flagged
 t.alike(a, b, 'same key') // ok
 t.is(x, y) // ok
 t.absent(found) // ok
+```
+
+### qvac/prefer-narrowing-check
+
+`Boolean(x) && x.y` does not narrow `x`, which is what pushes a `!` onto the next line, and
+`x ? x.y : null` is optional chaining written the long way. The fix rewrites both.
+
+```ts
+Boolean(room) && !room!.leftAt // flagged
+swarm ? swarm.dht : null // flagged
+
+!!room && !room.leftAt // ok
+swarm?.dht ?? null // ok
 ```
 
 ## License
