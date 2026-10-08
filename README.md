@@ -27,16 +27,16 @@ Turn a rule off or down the same way as a built-in one:
 }
 ```
 
-`qvac/max-function-lines`, `qvac/max-depth` and `qvac/curly` take options. They read them from
-`context.options`, in the ESLint shape, so once lunte passes rule options they are set like this; until
-then the defaults apply:
+Some rules take options, set as in ESLint. An option left out keeps its default:
 
 ```json
 {
   "rules": {
     "qvac/max-function-lines": ["error", { "max": 60 }],
     "qvac/max-depth": ["error", { "max": 4 }],
-    "qvac/curly": ["error", { "maxGuards": 1, "maxLength": 100 }]
+    "qvac/curly": ["error", { "maxGuards": 1, "maxLength": 100 }],
+    "qvac/no-inline-collection-name": ["error", { "home": "(^|/)db/names\\.js$" }],
+    "qvac/no-hand-rolled-guard": ["error", { "home": "(^|/)lib/check\\.js$" }]
   }
 }
 ```
