@@ -124,3 +124,13 @@ test('the limits are options', async (t) => {
   t.alike(looser.lines, [])
   t.alike(strict.lines, [2, 3, 4])
 })
+
+test('an option left out keeps its default', async (t) => {
+  const guard = `  if (!x) return '${'x'.repeat(80)}'`
+  const { lines } = await lint(`function f(x) {\n${guard}\n  run(x)\n}\n`, {
+    rule,
+    options: [{ maxGuards: 3 }]
+  })
+
+  t.alike(lines, [2])
+})
