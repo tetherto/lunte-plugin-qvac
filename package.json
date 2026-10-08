@@ -1,6 +1,6 @@
 {
   "name": "lunte-plugin-qvac",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Lunte rules for the QVAC house style",
   "type": "module",
   "main": "index.js",
@@ -18,11 +18,11 @@
     "lib"
   ],
   "peerDependencies": {
-    "lunte": "^1.8.4"
+    "lunte": "^1.8.6"
   },
   "devDependencies": {
     "brittle": "^4.1.0",
-    "lunte": "^1.8.4",
+    "lunte": "^1.8.6",
     "prettier": "^3.9.6",
     "prettier-config-holepunch": "^2.0.0"
   },
