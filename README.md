@@ -85,6 +85,7 @@ devices and external processes.
 | [`qvac/prefer-alike`](#qvacprefer-alike)                               | In tests, `t.alike` / `t.is` / `t.absent` instead of `t.ok` around a comparison. Autofix.                                                      |
 | [`qvac/prefer-narrowing-check`](#qvacprefer-narrowing-check)           | `!!x` instead of `Boolean(x) &&`, `x?.y` instead of `x ? x.y : null`. Autofix.                                                                 |
 | [`qvac/no-hand-rolled-guard`](#qvacno-hand-rolled-guard)               | Import the shared `isRecord` and error-message guards (option: `home`).                                                                        |
+| [`qvac/no-test-internals`](#qvacno-test-internals)                     | In tests, no prototype patches, no `_private` members off `this`, no `Reflect` with a `'_…'` key.                                              |
 
 ## Rule details
 
@@ -535,6 +536,30 @@ const isRecord = (v) => typeof v === 'object' && v !== null // flagged
 const message = err instanceof Error ? err.message : String(err) // flagged
 
 import { isRecord, errorMessage } from './guards.ts' // ok
+```
+
+### qvac/no-test-internals
+
+A test that patches a prototype or reads a private field is pinned to today's implementation and
+breaks on the next refactor, though nothing a user sees has changed. Tests drive the library
+through its public API and the test harness: timing and failures come from the harness, not from
+patching.
+
+```ts
+Mesh.prototype.appendBirthOp = failing // flagged
+Object.defineProperty(Mesh.prototype, 'interrupted', { get }) // flagged
+t.is(core._candidateMesh, null) // flagged
+Reflect.get(core, '_key') // flagged
+
+await client.joinMesh(invite) // ok
+this._calls++ // ok: `this` is never flagged
+```
+
+Where a case really cannot be reached any other way, skip the line, or the file when it is
+internals throughout, and say why after `--`, which lunte passes over:
+
+```ts
+core._swarm.destroy() // lunte-disable-line qvac/no-test-internals -- no API drops the swarm
 ```
 
 ## License

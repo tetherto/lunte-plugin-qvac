@@ -32,6 +32,7 @@ import { noConstantNullish } from './lib/rules/no-constant-nullish.js'
 import { preferAlike } from './lib/rules/prefer-alike.js'
 import { preferNarrowingCheck } from './lib/rules/prefer-narrowing-check.js'
 import { noHandRolledGuard } from './lib/rules/no-hand-rolled-guard.js'
+import { noTestInternals } from './lib/rules/no-test-internals.js'
 
 export const rules = [
   noConditionalSpread,
@@ -67,5 +68,6 @@ export const rules = [
   noConstantNullish,
   preferAlike,
   preferNarrowingCheck,
-  noHandRolledGuard
+  noHandRolledGuard,
+  noTestInternals
 ]
